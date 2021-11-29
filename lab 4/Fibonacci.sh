@@ -1,13 +1,24 @@
-echo "Series length:"
+#! /bin/sh
+
+echo "Enter no of terms to be generated"
 read n
 
-a=0
-b=1
-tmp=0
+n1=0
+n2=1
 
-for ((i = 1; i <= n; i++)); do
-    tmp=$a
-    a=$(expr $a + $b)
-    echo -n " $a"
-    b=$tmp
+i=2
+
+echo "Fibonacci terms are "
+
+echo $n1
+echo $n2
+
+while [ $i -lt $n ]
+do
+	term=`expr $n1 + $n2`
+	echo $term
+	n1=$n2
+	n2=$term
+	
+	i=`expr $i + 1`
 done
